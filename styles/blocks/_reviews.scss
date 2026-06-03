@@ -1,0 +1,74 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  row-gap: 110px;
+  padding-block: 84px 54px;
+  color: var(--color-light);
+  background-color: var(--color-dark);
+  border-radius: var(--border-radius-large);
+  overflow-x: hidden;
+
+  @include tablet{
+    row-gap: 46px;
+    padding-block: 30px 46px;
+  }
+  @include mobile-s{
+    row-gap: 35px;
+    padding-block: 25px 35px;
+  }
+
+  &__slider {
+    &-list {
+      display: flex;
+      padding-inline: 30px;
+      column-gap: 50px;
+      scroll-snap-type: x mandatory;
+      overflow-x: auto;
+
+      @include tablet{
+        column-gap: 30px;
+      }
+      @include mobile-s{
+        padding-inline: 20px;
+      }
+    }
+
+    &-item{
+      min-width: clamp(330px, 60vw, 606px);
+
+      @include mobile-s{
+        min-width: 280px;
+      }
+    }
+  }
+
+  &__actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: auto;
+    width: 100%;
+    max-width: 564px;
+  }
+
+  &__arrow-button{
+    @include reset-button;
+    @include flex-center;
+    @include square(48px);
+
+    color: var(--color-light);
+
+    @include hover{
+      color: var(--color-accent);
+    }
+
+    &[disabled]{
+      color: var(--color-gray-alt);
+      cursor: not-allowed
+    }
+
+    svg{
+      @include square(20px);
+    }
+  }
+}

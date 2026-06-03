@@ -1,0 +1,25 @@
+.puddle-bg {
+  padding-inline: 7px;
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius-small);
+  white-space: nowrap;
+
+  &--light {
+    background-color: var(--color-light);
+  }
+
+  &--wrap {
+    @include mobile-above {
+      & span {
+        padding-inline: 0;
+      }
+    }
+
+    @include mobile {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: transparent;
+    }
+  }
+}

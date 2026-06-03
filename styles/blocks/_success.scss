@@ -1,0 +1,124 @@
+.success {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--section-padding-y);
+
+  @include desktop {
+    row-gap: 60px;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    column-gap: 30px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    @include mobile-s {
+      gap: 20px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+    align-items: start;
+    max-width: 530px;
+
+    @include mobile {
+      display: contents;
+    }
+  }
+
+  &__title {
+    @include mobile {
+      order: -2;
+    }
+  }
+
+  &__description {
+    font-size: 20px;
+    line-height: 1.4;
+
+    @include mobile-s {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__button {
+    @include mobile {
+      width: 100%;
+      max-width: 390px;
+      margin-inline: auto;
+    }
+  }
+
+  &__image {
+    @include tablet {
+      max-width: 50%;
+      height: auto;
+      align-self: center;
+    }
+
+    @include mobile {
+      order: -1;
+      width: 80%;
+      max-width: 100%;
+    }
+
+    @include mobile-s {
+      width: 100%;
+    }
+  }
+
+  &__partners {
+    --heroPartnersWidthOffsetX: 70px;
+
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+
+    @include mobile {
+      margin-inline: calc(var(--container-padding-x) * -1);
+      padding-inline: var(--container-padding-x);
+    }
+
+    &-list {
+      margin-inline: auto;
+      display: flex;
+      justify-content: space-between;
+
+
+      @include tablet {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 20px;
+        column-gap: 65px;
+      }
+
+      @include mobile {
+        width: calc(100vw + var(--heroPartnersWidthOffsetX) * 2);
+        column-gap: 0;
+      }
+    }
+
+    &-item {
+      @include tablet {
+        display: flex;
+        justify-content: start;
+
+        &:nth-child(-n + 3) {
+          justify-content: end;
+        }
+      }
+    }
+
+    &-image {
+      filter: grayscale(1)
+    }
+  }
+}
